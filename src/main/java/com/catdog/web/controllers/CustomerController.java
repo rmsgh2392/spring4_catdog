@@ -33,7 +33,7 @@ public class CustomerController {
 	public String findCustomerByCid(@RequestParam("cid") String cid,
 			@RequestParam("pwd") String pwd) {
 //		request.getparameter("cid")를 안해도 가져올수 있다.
-		
+		//test
 		return "index";
 	} 
 }
