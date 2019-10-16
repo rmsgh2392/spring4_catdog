@@ -1,6 +1,7 @@
 package com.catdog.web.controllers;
 
 import java.text.DateFormat;
+
 import java.util.Date;
 import java.util.Locale;
 
@@ -32,6 +33,7 @@ public class HomeController {
 	//handlermapping , adapt 패턴
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome  {}.", "HomeController");
+		
 		return "index";
 	}
 }

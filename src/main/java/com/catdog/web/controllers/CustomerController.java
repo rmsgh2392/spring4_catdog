@@ -26,6 +26,7 @@ public class CustomerController {
 	public String customer(Model model) {//model녀석이 request를 감싸고 있다. 들어있음 
 		
 		model.addAttribute("count",customerService.countCustomer());
+		
 		//여기서 모델이 mapper가 된다.
 		return "index";
 	}

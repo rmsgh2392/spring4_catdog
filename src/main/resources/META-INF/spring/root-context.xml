@@ -29,6 +29,6 @@
 		</bean>
 		<!-- commander역활을 한다. -->
 	<!-- context는 component가scan하면서 만들어진다. -->
-		<context:component-scan base-package="com.catdog.web" />
+		<context:component-scan base-package="com.catdog.web"/>
 		<mybatis-spring:scan base-package="com.catdog.web"/>
 </beans>
