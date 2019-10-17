@@ -33,7 +33,6 @@ public class HomeController {
 	//handlermapping , adapt 패턴
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome  {}.", "HomeController");
-		
 		return "index";
 	}
 }
