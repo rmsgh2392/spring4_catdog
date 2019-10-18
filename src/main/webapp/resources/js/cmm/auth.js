@@ -48,7 +48,44 @@ auth =(()=>{
 						contentType : 'application/json',
 						success : d => {
 							alert('AJAX 성공입니당 아이디:'+d.cid+',성공비번 :'+d.pwd)
-							
+							let x = {css : $.css(), img : $.img()}
+							$('head')
+							.html(auth_vue.login_head(x))
+							$('body')
+							.addClass('text-center')
+							.html(auth_vue.login_body(x))
+							$('<button>',{
+								text : "로그인",
+								type : "submit",
+								href : "#",//json은 자바스크립트 객체라서 기능을 넣어줄 수 있다.
+								click : e =>{
+									e.preventDefault()
+									let login_data = {
+										cid : $('#cid').val(),
+										pwd : $('#pwd').val()
+									}
+									alert('cid : '+login_data.cid)
+									$.ajax({
+										url : _+'/customer/login',
+										type : 'POST',
+										dataType : 'json',
+										data : JSON.stringify(login_data),
+										contentType : 'application/json',
+										success : d=>{
+											alert('ajax연결 성공 아이디 : '+d.cid+',성공비번 : '+d.pwd)
+											$('h1')
+											.html(auth_vue.mypage_h1())
+										},
+										error : e=>{
+											alert('ajax연결 실패')
+										}
+										
+									})
+								}
+							})
+							.addClass("btn btn-lg btn-primary btn-bloc")
+							.appendTo('#login_btn')
+						
 						},
 						error : e => {
 							alert('AJAX 실패입니당')

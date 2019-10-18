@@ -35,9 +35,9 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="<%=application.getContextPath()%>/resources/css/signin.css" rel="stylesheet">     
+<!--상황에 따라 지워지는게 달라진다 지금 여기선 form 태그만 지우면 하얗게 된다. -->
 </head>
 <body class="text-center">
-<!--상황에 따라 지워지는게 달라진다 지금 여기선 form 태그만 지우면 하얗게 된다. -->
 <form id="form_join" class="form-signin">
   <img class="mb-4" src="<%=application.getContextPath()%>/resources/img/bootstrap-solid.svg" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -59,6 +59,7 @@
 <script src="<%=application.getContextPath()%>/resources/js/app.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/cmm/router.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/cmm/auth.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/vue/auth_vue.js"></script>
 <script>
 app.run('<%=application.getContextPath()%>');
 </script>
