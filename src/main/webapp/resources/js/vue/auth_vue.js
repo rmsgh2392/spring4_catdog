@@ -96,54 +96,54 @@ auth_vue = {
         '      <form class="needs-validation" novalidate="">'+
         '        <div class="row">'+
         '          <div class="col-md-6 mb-3">'+
-        '            <label for="userid">USERID</label>'+
-        '            <input type="text" class="form-control" id="userid" placeholder="" value="" required="">'+
+        '            <label for="cid">CUSTOMERID</label>'+
+        '            <input type="text" class="form-control" id="cid" placeholder="" value="" required="">'+
         '            <div class="invalid-feedback">'+
         '              Valid first name is required.'+
         '            </div>'+
         '          </div>'+
         '          <div class="col-md-6 mb-3">'+
-        '            <label for="password">PASSWORD</label>'+
-        '            <input type="text" class="form-control" id="password" placeholder="" value="" required="">'+
+        '            <label for="pwd">PASSWORD</label>'+
+        '            <input type="text" class="form-control" id="pwd" placeholder="" value="" required="">'+
         '            <div class="invalid-feedback">'+
         '              Valid last name is required.'+
         '            </div>'+
         '          </div>'+
         '        </div>'+
         '        <div class="mb-3">'+
-        '          <label for="username">Username</label>'+
+        '          <label for="ssn">주민번호</label>'+
         '          <div class="input-group">'+
         '            <div class="input-group-prepend">'+
         '              <span class="input-group-text">@</span>'+
         '            </div>'+
-        '            <input type="text" class="form-control" id="username" placeholder="Username" required="">'+
+        '            <input type="text" class="form-control" id="ssn" placeholder="Username" required="">'+
         '            <div class="invalid-feedback" style="width: 100%;">'+
         '              Your username is required.'+
         '            </div>'+
         '          </div>'+
         '        </div>'+
         '        <div class="mb-3">'+
-        '          <label for="email">Email <span class="text-muted">(Optional)</span></label>'+
-        '          <input type="email" class="form-control" id="email" placeholder="you@example.com">'+
+        '          <label for="creditcard">신용카드<span class="text-muted">(Optional)</span></label>'+
+        '          <input type="email" class="form-control" id="creditcard" placeholder="you@example.com">'+
         '          <div class="invalid-feedback">'+
         '            Please enter a valid email address for shipping updates.'+
         '          </div>'+
         '        </div>'+
         '        <div class="mb-3">'+
-        '          <label for="address">Address</label>'+
-        '          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">'+
+        '          <label for="pname">사용자이름</label>'+
+        '          <input type="text" class="form-control" id="pname" placeholder="1234 Main St" required="">'+
         '          <div class="invalid-feedback">'+
         '            Please enter your shipping address.'+
         '          </div>'+
         '        </div>'+
         '        <div class="mb-3">'+
-        '          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>'+
-        '          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">'+
+        '          <label for="phone">핸드폰번호<span class="text-muted">(Optional)</span></label>'+
+        '          <input type="text" class="form-control" id="phone" placeholder="Apartment or suite">'+
         '        </div>'+
         '        <div class="row">'+
         '          <div class="col-md-5 mb-3">'+
-        '            <label for="country">Country</label>'+
-        '            <select class="custom-select d-block w-100" id="country" required="">'+
+        '            <label for="address">주소</label>'+
+        '            <select class="custom-select d-block w-100" id="address" required="">'+
         '              <option value="">Choose...</option>'+
         '              <option>United States</option>'+
         '            </select>'+
@@ -152,8 +152,8 @@ auth_vue = {
         '            </div>'+
         '          </div>'+
         '          <div class="col-md-4 mb-3">'+
-        '            <label for="state">State</label>'+
-        '            <select class="custom-select d-block w-100" id="state" required="">'+
+        '            <label for="email">이메일</label>'+
+        '            <select class="custom-select d-block w-100" id="email" required="">'+
         '              <option value="">Choose...</option>'+
         '              <option>California</option>'+
         '            </select>'+
@@ -293,6 +293,14 @@ auth_vue = {
 		'  <p class="mt-5 mb-3 text-muted">© 2017-2019</p>'+
 		'  </div>'+
 		'</form>'
+	},
+	mypage : d=>{
+		return '<input id="h1_btn" type="button" value="안녕하세여 마이페이지입니다."></input>'+
+				'<body>'+
+			   '<div id="div1">안녕하세여 '+d.pname+'님'+'</br>'+'귀하의 아이디는 '+d.cid+'</br>'+'비번은'+d.pwd+'입니다'+
+			   '주민번호 :'+d.ssn+'신용카드 :'+d.creditcard+'폰번호 :'+d.phone+'주소 :'+d.address+'이메일 : '+d.email+'입니다'+
+			   '</div>'+
+			   '</body>'
 	}
 	
 	

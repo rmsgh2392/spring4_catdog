@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 @Data @Component
-public class DeptDTO implements Serializable{
+public class AdminDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String deptNo,dname,loc;
+	private String aid,pwd,ssn,creditcard,pname,phone,address,email;
 }

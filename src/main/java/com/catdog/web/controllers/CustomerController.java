@@ -27,6 +27,7 @@ import com.catdog.web.services.CustomerService;
 public class CustomerController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	@Autowired CustomerServiceImpl customerService; //스프링컨테이너에 담아놓는다 (컨테이너와 연결)
+	@Autowired CustomerDTO customer;
 	
 //	@GetMapping("/count")//자바스크립트와 먼저 xml이 먼저 송신하고 자바로 보낸다.
 	//search와 관련된것을 매핑함
@@ -35,25 +36,40 @@ public class CustomerController {
 		//여기서 모델이 mapper가 된다.
 //		return "index";
 //	}
+
+	
 	
 	@PostMapping("/join")
-	public @ResponseBody Map<?,?> join(@RequestBody CustomerDTO customer) {//<?,?> ?는 와일드 카드 
+	public @ResponseBody CustomerDTO join(@RequestBody CustomerDTO param) {//<?,?> ?는 와일드 카드 
 //		request.getparameter("cid")를 안해도 가져올수 있다.
-		Map<String,String> map = new HashMap<>();
-		logger.info("ajax가 보낸 아이디와 비번입니다 {} ",customer.getCid()+","+customer.getPwd());
-		map.put("cid",customer.getCid());
-		map.put("pwd",customer.getPwd());
-		logger.info("map에 담긴 아이디와 비번입니다 {} ",map.get("cid")+","+map.get("pwd"));
-		return map;
+//		Map<String,String> map = new HashMap<>();
+		logger.info("ajax가 보낸 아이디와 비번입니다 {} ",param.getCid()+","+param.getPwd()+","+param.getPname());
+//		map.put("pname",param.getPname());
+//		map.put("cid",param.getCid());
+//		map.put("pwd",param.getPwd());
+		customer.setCid(param.getCid());
+		customer.setPwd(param.getPwd());
+		customer.setPname(param.getPname());
+	    customerService.join(param);
+		System.out.println("customer");
+		logger.info("customer에 담긴 사용자 정보 {} ",customer.getCid()+","+customer.getPwd()+","+customer.getPname());
+		return customer;
 	} 
 	
 	@PostMapping("/login")
-	public @ResponseBody Map<?,?> login(@RequestBody CustomerDTO cust){
-		Map<String,String> m = new HashMap<>();
-		logger.info("ajax가 보낸 아이디와 비번입니다 {} ",cust.getCid()+","+cust.getPwd());
-		m.put("cid",cust.getCid());
-		m.put("pwd",cust.getPwd());
-		logger.info("map가 보낸 아이디와 비번입니다 {} ",m.get("cid")+","+m.get("pwd"));
-		return m;
+	public @ResponseBody CustomerDTO login(@RequestBody CustomerDTO param){
+		logger.info("ajax가 보낸 아이디와 비번입니다 {} ",param.getCid()+","+param.getPwd());
+		customer.setCid(param.getCid());
+		customer.setPwd(param.getPwd());
+//		customer.setSsn(param.getSsn());
+//		customer.setCreditcard(param.getCreditcard());
+//		customer.setPhone(param.getPhone());
+//		customer.setPname(param.getPname());
+//		customer.setEmail(param.getEmail());
+//		customer.setAddress(param.getAddress());
+		customer = customerService.login(param);
+		logger.info("customer에 담긴 사용자정보 : {} ",customer.toString());
+		return customer;
+	
 	}
 }

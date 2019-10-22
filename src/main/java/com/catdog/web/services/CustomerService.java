@@ -8,4 +8,7 @@ import com.catdog.web.domains.CustomerDTO;
 public interface CustomerService {
 	public int countCustomer ();
 	public CustomerDTO login(CustomerDTO param);
+	public void join(CustomerDTO param);
+	
+	
 }

@@ -34,7 +34,7 @@ var app = (()=>{
 			//콜백
 		})//when(무엇을 한다면) 성공하면done(),실패하면fail()
 	}
-	return{run:run}
+	return{run}
 	
 })();
 
